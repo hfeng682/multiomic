@@ -1,1 +1,6 @@
-Running: python3 moNetImpute.py inputData targetData
+Running:
+python3 moNetImpute.py inputData targetData
+
+Format: 
+inputData is .csv file with first column as cell name or gene name.
+targetData is .csv file with first column as cell name or CpG name.
