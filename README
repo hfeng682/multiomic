@@ -1,1 +1,1 @@
-Running: moNetImpute.py inputData targetData
+Running: python3 moNetImpute.py inputData targetData

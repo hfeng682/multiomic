@@ -163,9 +163,9 @@ class multiomicNet:
     
     def fit(self, X, Y):
         
-        n_subsets = round(Y.shape[1]/256) - 1
+        n_subsets = round(Y.shape[1]/self.sub_outputdim) - 1
         
-        Y_data_idx = np.random.choice(Y.columns, [n_subsets, 256], replace=False)
+        Y_data_idx = np.random.choice(Y.columns, [n_subsets, self.sub_outputdim], replace=False)
         Y_data = [Y[idx] for idx in Y_data_idx]
         
         X_data = []
@@ -177,8 +177,8 @@ class multiomicNet:
             X_data_idx = X_data_idx.unique()
             X_data.append(X[X_data_idx])
         
-        self.predictors = np.array([sub.columns for sub in X])
-        self.targets = np.array([sub.columns for sub in Y])
+        self.predictors = np.array([sub.columns for sub in X_data])
+        self.targets = np.array([sub.columns for sub in Y_data])
         
         #print("Normalization")
         #norm_X = np.log1p(X_data).astype(np.float32) # normalizer.transform(raw)

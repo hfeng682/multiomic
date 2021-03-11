@@ -31,7 +31,7 @@ def moNetImpute(**kwargs):
     }
 
     net = multiomicNet(**NN_params)
-    net.fit(X, Y, NN_lim=args.limit, cell_subset=args.subset, minVMR=args.minVMR, n_pred=args.n_pred)
+    net.fit(X, Y)
 
     imputed = net.predict(X, Y, imputed_only=False, policy=args.policy)
 
